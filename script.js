@@ -455,12 +455,6 @@ function toggleSidebar() {
  * Sets up all event listeners for UI elements.
  */
 function setupEventListeners() {
-  // Sidebar toggle button
-  const toggleBtn = document.querySelector('.toggle-sidebar');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', toggleSidebar);
-  }
-
   // Close sidebar when clicking outside on smaller screens
   document.addEventListener('click', (e) => {
     const sidebar = document.querySelector('.sidebar');

@@ -191,6 +191,7 @@ function initMap() {
 
   // Attach popup generation to marker click
   marker.on('click', () => {
+    marker.unbindPopup()
     marker.bindPopup(formatPopupContent()).openPopup();
   });
 

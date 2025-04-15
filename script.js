@@ -529,4 +529,9 @@ function main() {
 }
 
 // Run main function when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", main); 
+document.addEventListener("DOMContentLoaded", main);
+ 
+function toggleFAQ() {
+  const modal = document.getElementById('faqModal');
+  modal.classList.toggle('active');
+}

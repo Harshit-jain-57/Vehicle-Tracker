@@ -1,36 +1,32 @@
 :root {
-  --primary-color: #2563eb;
-  --success-color: #16a34a;
-  --danger-color: #dc2626;
-  --warning-color: #f59e0b;
-  --gray-color: #6b7280;
-  --bg-color: #f3f4f6;
-  --card-bg: #ffffff;
-  --text-primary: #1f2937;
-  --text-secondary: #4b5563;
+  --primary-color: #2563EB;
+  --success-color: #16A34A;
+  --danger-color: #DC2626;
+  --warning-color: #F59E0B;
+  --gray-color: #6B7280;
+  --bg-color: #F3F4F6;
+  --card-bg: #FFFFFF;
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
   --sidebar-width: 300px;
   --header-height: 60px;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
-
 body {
   height: 100vh;
   overflow: hidden;
   background: var(--bg-color);
 }
-
 .app-container {
   display: flex;
   height: 100vh;
   position: relative;
 }
-
 .sidebar {
   width: var(--sidebar-width);
   background: var(--card-bg);
@@ -40,7 +36,6 @@ body {
   z-index: 1000;
   transition: transform 0.3s ease;
 }
-
 .sidebar-content {
   padding: 1rem;
   display: flex;
@@ -49,26 +44,22 @@ body {
   overflow-y: auto;
   height: calc(100vh - var(--header-height));
 }
-
 .map-container {
   flex: 1;
   position: relative;
 }
-
 #map {
   width: 100%;
   height: 100%;
 }
-
 .header {
   height: var(--header-height);
   background: var(--card-bg);
   padding: 0 1rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #E5E7EB;
 }
-
 .header h1 {
   color: var(--text-primary);
   font-size: 1.25rem;
@@ -77,23 +68,19 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
-
 .header h1 i {
   color: var(--primary-color);
 }
-
 .controls {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
-
 .control-group {
   background: var(--bg-color);
   padding: 0.75rem;
   border-radius: 0.5rem;
 }
-
 .control-group label {
   color: var(--text-secondary);
   font-size: 0.75rem;
@@ -103,10 +90,9 @@ body {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
-
 select, input[type="text"] {
   padding: 0.5rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E5E7EB;
   border-radius: 0.375rem;
   background: var(--card-bg);
   font-size: 0.875rem;
@@ -114,19 +100,16 @@ select, input[type="text"] {
   transition: all 0.2s ease;
   width: 100%;
 }
-
 select:focus, input[type="text"]:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
-
 .button-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
 }
-
 button {
   padding: 0.5rem;
   border: none;
@@ -140,46 +123,38 @@ button {
   justify-content: center;
   gap: 0.5rem;
 }
-
 .start-btn {
   background-color: var(--success-color);
   color: white;
 }
-
 .stop-btn {
   background-color: var(--danger-color);
   color: white;
 }
-
 .reset-btn {
   background-color: var(--gray-color);
   color: white;
 }
-
 button:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 button:active {
   transform: translateY(0);
 }
-
 .speed-control {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .speed-control input[type="range"] {
   width: 100%;
   height: 4px;
   -webkit-appearance: none;
-  background: #e5e7eb;
+  background: #E5E7EB;
   border-radius: 2px;
   outline: none;
 }
-
 .speed-control input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
@@ -189,24 +164,19 @@ button:active {
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
 .speed-control input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.1);
 }
-
 .search-group {
   display: flex;
   gap: 0.5rem;
 }
-
 .search-group input {
   flex: 1;
 }
-
 .search-group button {
   padding: 0 1rem;
 }
-
 .status-indicator {
   display: flex;
   align-items: center;
@@ -218,24 +188,20 @@ button:active {
   background: var(--bg-color);
   margin-top: auto;
 }
-
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background-color: var(--gray-color);
 }
-
 .status-dot.active {
   background-color: var(--success-color);
   box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
 }
-
 .status-dot.paused {
   background-color: var(--warning-color);
   box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
 }
-
 .toggle-sidebar {
   display: none;
   position: absolute;
@@ -249,18 +215,15 @@ button:active {
   z-index: 1001;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .leaflet-popup-content-wrapper {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
 .leaflet-popup-content {
   margin: 15px;
   font-size: 0.875rem;
   line-height: 1.5;
 }
-
 .vehicle-popup h3 {
   font-size: 1rem;
   font-weight: 600;
@@ -269,17 +232,14 @@ button:active {
   padding-bottom: 5px;
   border-bottom: 2px solid var(--primary-color);
 }
-
 .vehicle-popup p {
   margin-bottom: 5px;
   color: var(--text-secondary);
 }
-
 .vehicle-popup strong {
   color: var(--text-primary);
   font-weight: 500;
 }
-
 @media (max-width: 1024px) {
   .sidebar {
     position: absolute;
@@ -288,26 +248,180 @@ button:active {
     bottom: 0;
     transform: translateX(-100%);
   }
-
   .sidebar.active {
     transform: translateX(0);
   }
-
   .toggle-sidebar {
     display: block;
   }
 }
-
 @media (max-width: 640px) {
   .button-group {
     grid-template-columns: 1fr;
   }
-
   .sidebar {
     width: 100%;
   }
-
   .header h1 {
     font-size: 1rem;
   }
-} 
+}
+/* FAQ Button and Modal Styles */
+.faq-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.faq-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.faq-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2001;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+.faq-modal.active {
+  display: flex;
+}
+.faq-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.faq-modal.active .faq-content {
+  transform: translateY(0);
+}
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f9fa;
+  border-radius: 12px 12px 0 0;
+}
+.faq-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.close-faq {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+}
+.close-faq:hover {
+  color: #333;
+}
+.faq-body {
+  padding: 20px;
+}
+.faq-item {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.faq-item:hover {
+  background-color: #f1f3f5;
+  transform: translateX(5px);
+}
+.faq-item h3 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.faq-item p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #555;
+}
+.faq-item ul {
+  margin-left: 20px;
+  color: #555;
+}
+.faq-item li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.note {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .faq-content {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .faq-button {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  .faq-header h2 {
+    font-size: 20px;
+  }
+  .faq-item {
+    padding: 12px;
+  }
+}
+/* Scrollbar styling */
+.faq-content::-webkit-scrollbar {
+  width: 8px;
+}
+.faq-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+.faq-content::-webkit-scrollbar-thumb {
+  background: #4CAF50;
+  border-radius: 4px;
+}
+.faq-content::-webkit-scrollbar-thumb:hover {
+  background: #45a049;
+}

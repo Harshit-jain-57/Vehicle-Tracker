@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vehicle Tracking</title>
-
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,12 +18,79 @@
     <button class="toggle-sidebar" onclick="toggleSidebar()">
       <i class="fas fa-bars"></i>
     </button>
-
+    <button class="faq-button" onclick="toggleFAQ()">
+      <i class="fas fa-question-circle"></i> FAQ
+    </button>
+    <div class="faq-modal" id="faqModal">
+      <div class="faq-content">
+        <div class="faq-header">
+          <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+          <button class="close-faq" onclick="toggleFAQ()">&times;</button>
+        </div>
+        <div class="faq-body">
+          <div class="faq-item">
+            <h3><i class="fas fa-history"></i> History Modes</h3>
+            <p>Choose between different time periods to view vehicle history:</p>
+            <ul>
+              <li><strong>Today:</strong> Real-time tracking of the vehicle. You can click anywhere on the map to create a route from the current vehicle position to the clicked location.</li>
+              <li><strong>Yesterday:</strong> View yesterday's route</li>
+              <li><strong>This Week:</strong> View this week's routes</li>
+            </ul>
+          </div>
+          <div class="faq-item">
+            <h3><i class="fas fa-map-marker-alt"></i> Map Interaction</h3>
+            <p>In Today mode, you can interact with the map in the following ways:</p>
+            <ul>
+              <li><strong>Click on Map:</strong> Click anywhere on the map to create a route from the current vehicle position to the clicked location</li>
+              <li><strong>Vehicle Marker:</strong> Click on the vehicle marker to see detailed information about its current status</li>
+              <li><strong>Zoom:</strong> Use the mouse wheel or the +/- buttons to zoom in and out</li>
+              <li><strong>Pan:</strong> Click and drag the map to move around</li>
+            </ul>
+          </div>
+          <div class="faq-item">
+            <h3><i class="fas fa-tachometer-alt"></i> Animation Speed</h3>
+            <p>Adjust the speed of route animation using the slider. Lower values make the animation faster.</p>
+          </div>
+          <div class="faq-item">
+            <h3><i class="fas fa-search"></i> Location Search</h3>
+            <p>Enter any location to search and create a route from the current vehicle position to the searched location.</p>
+          </div>
+          <div class="faq-item">
+            <h3><i class="fas fa-play-circle"></i> Animation Controls</h3>
+            <ul>
+              <li><strong>Start:</strong> Begin the route animation</li>
+              <li><strong>Stop:</strong> Pause the current animation</li>
+              <li><strong>Reset:</strong> Return to the starting point</li>
+            </ul>
+          </div>
+          <div class="faq-item">
+            <h3><i class="fas fa-map-marker-alt"></i> Vehicle Marker</h3>
+            <p>Click on the vehicle marker to see detailed information about its current status. Please note:</p>
+            <ul>
+              <li><strong>Current Position:</strong> Shows the exact latitude and longitude of the vehicle</li>
+              <li><strong>Speed:</strong> Currently showing approximate speed (not accurate). This will be improved in future updates to show the actual travel speed.</li>
+              <li><strong>Time:</strong> Currently shows the system time. Future updates will include the exact travel time for each point.</li>
+              <li><strong>Status:</strong> Indicates whether the vehicle is moving or stopped</li>
+            </ul>
+            <p class="note">Note: The speed and time information are currently placeholders and will be updated in future versions to show accurate travel data.</p>
+          </div>
+          <div class="faq-item">
+            <h3><i class="fas fa-info-circle"></i> Current Limitations</h3>
+            <p>The following features are currently in development and will be improved in future updates:</p>
+            <ul>
+              <li><strong>Speed Calculation:</strong> More accurate speed calculations based on actual travel time between points</li>
+              <li><strong>Time Tracking:</strong> Exact travel time for each point in the route</li>
+              <li><strong>Route Optimization:</strong> Improved route planning and optimization</li>
+              <li><strong>Historical Data:</strong> More detailed historical route information</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="sidebar">
       <div class="header">
         <h1><i class="fas fa-bus"></i> Vehicle Tracking</h1>
       </div>
-
       <div class="sidebar-content">
         <div class="controls">
           <div class="control-group">
@@ -35,13 +101,11 @@
               <option value="thisWeek">This Week</option>
             </select>
           </div>
-
           <div class="control-group speed-control">
             <label for="speed"><i class="fas fa-tachometer-alt"></i> Animation Speed</label>
             <input type="range" id="speed" min="50" max="500" value="200" />
             <span id="speedValue">200ms</span>
           </div>
-
           <div class="control-group">
             <label for="search"><i class="fas fa-search"></i> Search Location</label>
             <div class="search-group">
@@ -49,7 +113,6 @@
               <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
             </div>
           </div>
-
           <div class="control-group">
             <label><i class="fas fa-play-circle"></i> Controls</label>
             <div class="button-group">
@@ -65,19 +128,16 @@
             </div>
           </div>
         </div>
-
         <div class="status-indicator">
           <div class="status-dot" id="statusDot"></div>
           <span id="statusText">Ready</span>
         </div>
       </div>
     </div>
-
     <div class="map-container">
       <div id="map"></div>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>

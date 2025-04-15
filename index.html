@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vehicle Tracking</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+  <script src="https://rawcdn.githack.com/bbecquet/Leaflet.RotatedMarker/master/leaflet.rotatedMarker.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <button class="toggle-sidebar" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="sidebar">
+      <div class="header">
+        <h1><i class="fas fa-bus"></i> Vehicle Tracking</h1>
+      </div>
+
+      <div class="sidebar-content">
+        <div class="controls">
+          <div class="control-group">
+            <label for="mode"><i class="fas fa-history"></i> Show History</label>
+            <select id="mode">
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+              <option value="thisWeek">This Week</option>
+            </select>
+          </div>
+
+          <div class="control-group speed-control">
+            <label for="speed"><i class="fas fa-tachometer-alt"></i> Animation Speed</label>
+            <input type="range" id="speed" min="50" max="500" value="200" />
+            <span id="speedValue">200ms</span>
+          </div>
+
+          <div class="control-group">
+            <label for="search"><i class="fas fa-search"></i> Search Location</label>
+            <div class="search-group">
+              <input type="text" id="search" placeholder="Enter location..." />
+              <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label><i class="fas fa-play-circle"></i> Controls</label>
+            <div class="button-group">
+              <button class="start-btn" onclick="startAnimation()">
+                <i class="fas fa-play"></i> Start
+              </button>
+              <button class="stop-btn" onclick="stopAnimation()">
+                <i class="fas fa-stop"></i> Stop
+              </button>
+              <button class="reset-btn" onclick="resetAnimation()">
+                <i class="fas fa-redo"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="status-indicator">
+          <div class="status-dot" id="statusDot"></div>
+          <span id="statusText">Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
